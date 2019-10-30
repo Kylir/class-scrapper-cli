@@ -1,0 +1,28 @@
+{
+  "name": "class-scrapper-cli",
+  "version": "0.0.1",
+  "description": "Extract text element with a specific class and displays them on the command line.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kylir/class-scrapper-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "scrapping"
+  ],
+  "author": "Jason Forest",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kylir/class-scrapper-cli/issues"
+  },
+  "homepage": "https://github.com/Kylir/class-scrapper-cli#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.3"
+  }
+}
