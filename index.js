@@ -1,11 +1,15 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
+const chalk = require('chalk')
 
 // read command line args
 if (process.argv.length !== 4) {
     console.error('Error! Wrong number of parameters!')
-    console.error('Usage: node index.js <URL> <SELECTOR>')
-    console.error('Example: node index.js "https://lemonde.fr/" "p.article__title"')
+    console.error('\nUsage: node index.js <URL> <SELECTOR>\n')
+    console.error('Examples:')
+    console.error('\tnode index.js "https://news.ycombinator.com/best" ".storylink"')
+    console.error('\tnode index.js "https://lemonde.fr/" "p.article__title"')
+    console.error('\tnode index.js "https://www.theguardian.com/uk" "a.js-headline-text"')
     process.exit(-1)
 }
 
@@ -18,10 +22,16 @@ const options = {
     responseType: 'document'
 }
 
-axios.get(url, options)
+axios
+    .get(url, options)
     .then(response => {
         const $ = cheerio.load(response.data)
         $(selector).each( (i, elm) => {
-            console.log($(elm).text())
+            const text = chalk.green( $(elm).text() )
+            const link = chalk.blue( $(elm).closest('a').attr('href') )
+            console.log( text + ' ' + link)
         });
-    }).catch(err => {console.error(err)})
+    })
+    .catch(err => {
+        console.error(err)
+    })

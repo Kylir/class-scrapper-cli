@@ -1,6 +1,6 @@
 {
   "name": "class-scrapper-cli",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Extract text element with a specific class and displays them on the command line.",
   "main": "index.js",
   "scripts": {
